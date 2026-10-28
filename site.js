@@ -41,13 +41,6 @@ if (exploreLink) {
       ]
     },
     {
-      title: 'Client Access',
-      links: [
-        ['RightCapital', 'https://app.rightcapital.com/account/login?cobrand=jE68KEe8AQOXTp6RTVM43w&type=client'],
-        ['Altruist', 'https://app.altruist.com/login']
-      ]
-    },
-    {
       title: 'Firm Information',
       links: [
         ['Disclosures', 'legal.html#disclosures'],
@@ -57,6 +50,13 @@ if (exploreLink) {
     {
       title: 'Contact',
       links: [['Contact Us', 'contact.html']]
+    },
+    {
+      title: 'Client Access',
+      links: [
+        ['RightCapital', 'https://app.rightcapital.com/account/login?cobrand=jE68KEe8AQOXTp6RTVM43w&type=client'],
+        ['Altruist', 'https://app.altruist.com/login']
+      ]
     }
   ];
 
@@ -76,12 +76,15 @@ if (exploreLink) {
   panel.id = 'explore-menu';
 
   categories.forEach(({ title, links }) => {
-    const section = document.createElement('section');
+    const section = document.createElement('details');
     section.className = 'explore-category';
 
-    const heading = document.createElement('h2');
+    const heading = document.createElement('summary');
     heading.textContent = title;
-    section.append(heading);
+
+    const categoryLinks = document.createElement('div');
+    categoryLinks.className = 'explore-category-links';
+    if (title === 'Services') section.classList.add('explore-category-services');
 
     links.forEach(([label, href]) => {
       const link = document.createElement('a');
@@ -93,17 +96,13 @@ if (exploreLink) {
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
       }
-      section.append(link);
+      categoryLinks.append(link);
     });
 
+    section.append(heading, categoryLinks);
     panel.append(section);
   });
 
-  const allPages = document.createElement('a');
-  allPages.className = 'explore-all-pages';
-  allPages.href = 'site-map.html';
-  allPages.textContent = 'View all pages';
-  panel.append(allPages);
   dropdown.append(toggle, panel);
   exploreLink.replaceWith(dropdown);
 
