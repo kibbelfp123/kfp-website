@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Financial planning for modern professionals. Transparent fees, expert guidance, and comprehensive planning with Kibbel Financial Planning.">
+  <title>Kibbel Financial Planning | Plan. Build. Protect. Thrive.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1a1a1a;
+      --ink-soft: #343431;
+      --gold: #c5a34a;
+      --gold-light: #dfc77d;
+      --paper: #f7f6f2;
+      --paper-deep: #eeece5;
+      --white: #fff;
+      --muted: #65645f;
+      --line: #d8d5cc;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+      --content: 1180px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); font-size: 15px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    button { font: inherit; }
+    img { display: block; max-width: 100%; }
+    .container { width: min(var(--content), calc(100% - 64px)); margin-inline: auto; }
+    .eyebrow { display: flex; align-items: center; gap: 12px; margin: 0 0 20px; color: var(--gold); font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
+    .eyebrow::before { width: 26px; height: 1px; background: currentColor; content: ''; }
+    .serif { font-family: var(--serif); font-weight: 400; }
+    .gold { color: var(--gold-light); font-style: italic; }
+
+    .site-header { position: relative; z-index: 5; background: var(--paper); }
+    .header-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; flex: 0 0 auto; color: var(--ink); text-decoration: none; }
+    .brand-mark { width: 37px; height: 37px; display: grid; place-items: center; border: 1px solid var(--gold); color: var(--gold); font-family: var(--serif); font-size: 18px; }
+    .brand-name { display: block; font-family: var(--serif); font-size: 18px; line-height: 1.1; }
+    .brand-sub { display: block; margin-top: 4px; color: var(--muted); font-size: 9px; font-weight: 500; letter-spacing: .13em; text-transform: uppercase; }
+    .nav-wrap { display: flex; align-items: center; gap: 32px; }
+    .primary-nav { display: flex; align-items: center; gap: 25px; }
+    .primary-nav a { color: #42413d; font-size: 12px; text-decoration: none; transition: color .2s ease; }
+    .primary-nav a:hover, .primary-nav a:focus-visible { color: #927328; }
+    .header-cta, .button { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; padding: 0 22px; background: var(--gold); color: var(--ink); border: 1px solid var(--gold); font-size: 11px; font-weight: 600; letter-spacing: .07em; text-decoration: none; text-transform: uppercase; transition: background .2s ease, color .2s ease, border-color .2s ease; }
+    .header-cta:hover, .button:hover { background: var(--gold-light); border-color: var(--gold-light); }
+    .menu-toggle { display: none; min-height: 42px; padding: 0 12px; background: transparent; border: 1px solid var(--line); color: var(--ink); font-size: 12px; }
+
+    .hero { min-height: min(690px, calc(100svh - 82px)); position: relative; display: flex; align-items: center; overflow: hidden; background: #37352e; color: var(--white); }
+    .hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 43%; }
+    .hero-shade { position: absolute; inset: 0; background: rgba(18, 19, 17, .61); }
+    .hero-content { position: relative; z-index: 1; width: min(760px, 100%); padding-block: 92px 110px; animation: arrive .7s ease-out both; }
+    .hero .eyebrow { color: var(--gold-light); }
+    .hero h1 { max-width: 760px; margin: 0; font-family: var(--serif); font-size: clamp(44px, 6vw, 72px); font-weight: 400; line-height: 1.07; }
+    .hero-copy { max-width: 590px; margin: 23px 0 0; color: rgba(255,255,255,.82); font-size: 16px; font-weight: 300; line-height: 1.75; }
+    .hero-actions { display: flex; align-items: center; gap: 26px; margin-top: 32px; }
+    .hero .button { min-height: 52px; padding-inline: 25px; }
+    .text-link { display: inline-flex; align-items: center; gap: 9px; color: var(--white); font-size: 12px; text-decoration: none; }
+    .text-link::after { width: 22px; height: 1px; background: var(--gold-light); content: ''; transition: width .2s ease; }
+    .text-link:hover::after { width: 32px; }
+    .hero-note { position: absolute; z-index: 1; right: max(32px, calc((100vw - var(--content)) / 2)); bottom: 30px; color: rgba(255,255,255,.65); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+
+    .promise { padding: 31px 0; background: var(--ink); color: var(--white); }
+    .promise-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .promise-label { margin: 0; color: var(--gold-light); font-size: 10px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; }
+    .promise-text { margin: 0; font-family: var(--serif); font-size: clamp(19px, 2.4vw, 27px); }
+    .promise-text span { color: var(--gold-light); }
+
+    .section { padding: 104px 0; }
+    .section-head { max-width: 660px; margin-bottom: 48px; }
+    .section-head h2 { margin: 0; font-family: var(--serif); font-size: clamp(36px, 4.7vw, 54px); font-weight: 400; line-height: 1.12; }
+    .section-head p { max-width: 590px; margin: 17px 0 0; color: var(--muted); font-weight: 300; }
+    .philosophy { display: grid; grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr); align-items: start; gap: 90px; }
+    .philosophy-intro { position: sticky; top: 35px; }
+    .philosophy-intro h2 { margin: 0; font-family: var(--serif); font-size: clamp(37px, 4.5vw, 54px); font-weight: 400; line-height: 1.12; }
+    .philosophy-intro > p:last-child { max-width: 390px; margin: 19px 0 0; color: var(--muted); font-weight: 300; }
+    .principles { border-top: 1px solid var(--line); }
+    .principle { display: grid; grid-template-columns: 58px 1fr; gap: 21px; padding: 24px 0 27px; border-bottom: 1px solid var(--line); }
+    .principle-number { padding-top: 4px; color: var(--gold); font-family: var(--serif); font-size: 16px; }
+    .principle h3 { margin: 0; font-family: var(--serif); font-size: 23px; font-weight: 400; }
+    .principle p { margin: 7px 0 0; color: var(--muted); font-size: 13px; font-weight: 300; }
+
+    .approach { padding: 96px 0 104px; background: var(--paper-deep); }
+    .approach-top { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 48px; }
+    .approach-top .section-head { margin: 0; }
+    .approach-top > p { max-width: 280px; margin: 0 0 5px; color: var(--muted); font-size: 13px; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #c9c6bd; }
+    .step { min-height: 220px; padding: 24px 25px 0 0; }
+    .step + .step { padding-left: 25px; border-left: 1px solid #c9c6bd; }
+    .step-number { color: var(--gold); font-family: var(--serif); font-size: 16px; }
+    .step h3 { margin: 28px 0 8px; font-family: var(--serif); font-size: 23px; font-weight: 400; }
+    .step p { max-width: 230px; margin: 0; color: var(--muted); font-size: 13px; font-weight: 300; }
+
+    .services { padding: 104px 0 110px; }
+    .services-top { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 40px; }
+    .services-top .section-head { margin: 0; }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+    .service { min-height: 186px; padding: 25px 27px; background: rgba(255,255,255,.48); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background .2s ease; }
+    .service:hover { background: var(--white); }
+    .service-index { color: var(--gold); font-size: 10px; letter-spacing: .1em; }
+    .service h3 { margin: 21px 0 6px; font-family: var(--serif); font-size: 22px; font-weight: 400; }
+    .service p { margin: 0; color: var(--muted); font-size: 12px; font-weight: 300; }
+    .services-foot { display: flex; justify-content: space-between; gap: 25px; margin-top: 24px; color: var(--muted); font-size: 12px; }
+    .services-foot p { margin: 0; }
+
+    .closing { position: relative; overflow: hidden; padding: 83px 0 88px; background: var(--ink); color: var(--white); }
+    .closing::after { position: absolute; top: -105px; right: 7%; width: 330px; height: 330px; border: 1px solid rgba(197,163,74,.25); border-radius: 50%; content: ''; }
+    .closing-inner { position: relative; z-index: 1; display: flex; align-items: end; justify-content: space-between; gap: 42px; }
+    .closing .eyebrow { color: var(--gold-light); }
+    .closing h2 { max-width: 660px; margin: 0; font-family: var(--serif); font-size: clamp(39px, 5vw, 59px); font-weight: 400; line-height: 1.12; }
+    .closing-copy { max-width: 495px; margin: 16px 0 0; color: rgba(255,255,255,.65); font-size: 14px; font-weight: 300; }
+    .closing .button { flex: 0 0 auto; min-height: 52px; padding-inline: 25px; }
+
+    .site-footer { padding: 53px 0 30px; background: #111; color: var(--white); }
+    .footer-main { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 50px; padding-bottom: 42px; }
+    .footer-brand .brand { color: var(--white); }
+    .footer-brand .brand-sub { color: rgba(255,255,255,.5); }
+    .footer-brand > p { max-width: 300px; margin: 19px 0 0; color: rgba(255,255,255,.56); font-size: 12px; font-weight: 300; }
+    .footer-col h2 { margin: 4px 0 14px; color: var(--gold-light); font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+    .footer-col a, .footer-col p { display: block; width: fit-content; margin: 0 0 9px; color: rgba(255,255,255,.72); font-size: 12px; font-weight: 300; text-decoration: none; }
+    .footer-col a:hover { color: var(--gold-light); }
+    .disclosure { padding-top: 24px; border-top: 1px solid rgba(255,255,255,.17); color: rgba(255,255,255,.47); font-size: 10px; font-weight: 300; line-height: 1.75; }
+    .disclosure p { margin: 0; }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 18px; color: rgba(255,255,255,.4); font-size: 10px; }
+    .footer-bottom a { color: inherit; text-decoration: none; }
+
+    @keyframes arrive { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 900px) {
+      .container { width: min(var(--content), calc(100% - 44px)); }
+      .header-inner { min-height: 74px; gap: 18px; }
+      .nav-wrap { gap: 18px; }
+      .primary-nav { gap: 15px; }
+      .primary-nav a { font-size: 11px; }
+      .header-cta { padding-inline: 15px; font-size: 10px; }
+      .hero { min-height: 590px; }
+      .philosophy { gap: 48px; }
+      .service { padding-inline: 20px; }
+      .closing-inner { align-items: start; flex-direction: column; }
+      .footer-main { gap: 28px; }
+    }
+    @media (max-width: 680px) {
+      .container { width: calc(100% - 40px); }
+      .header-inner { min-height: 70px; flex-wrap: wrap; }
+      .brand-mark { width: 34px; height: 34px; }
+      .brand-name { font-size: 16px; }
+      .menu-toggle { display: inline-flex; align-items: center; gap: 9px; margin-left: auto; }
+      .menu-toggle::after { width: 14px; height: 10px; display: inline-block; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; content: ''; }
+      .nav-wrap { display: none; width: 100%; align-items: stretch; padding: 0 0 17px; }
+      .nav-wrap.is-open { display: flex; flex-direction: column; }
+      .primary-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+      .primary-nav a { padding: 11px 0; border-top: 1px solid var(--line); font-size: 13px; }
+      .header-cta { align-self: flex-start; }
+      .hero { min-height: 630px; min-height: min(720px, calc(100svh - 70px)); }
+      .hero-image { object-position: 58% center; }
+      .hero-shade { background: rgba(18,19,17,.66); }
+      .hero-content { padding-block: 75px 96px; }
+      .hero h1 { font-size: clamp(42px, 12vw, 59px); }
+      .hero-copy { max-width: 450px; font-size: 14px; }
+      .hero-actions { align-items: flex-start; flex-direction: column; gap: 20px; }
+      .hero-note { right: 20px; bottom: 18px; left: 20px; font-size: 9px; }
+      .promise { padding: 25px 0; }
+      .promise-inner { align-items: flex-start; flex-direction: column; gap: 8px; }
+      .section { padding: 75px 0; }
+      .philosophy { grid-template-columns: 1fr; gap: 38px; }
+      .philosophy-intro { position: static; }
+      .principle { grid-template-columns: 37px 1fr; gap: 13px; }
+      .approach { padding: 75px 0; }
+      .approach-top, .services-top { align-items: flex-start; flex-direction: column; gap: 18px; }
+      .approach-top > p { max-width: 450px; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .step { min-height: 196px; padding: 20px 14px 18px 0; }
+      .step + .step { padding-left: 16px; }
+      .step:nth-child(3) { padding-left: 0; border-left: 0; border-top: 1px solid #c9c6bd; }
+      .step:nth-child(4) { border-top: 1px solid #c9c6bd; }
+      .step h3 { margin-top: 20px; font-size: 21px; }
+      .service-grid { grid-template-columns: 1fr 1fr; }
+      .service { min-height: 174px; padding: 18px 16px; }
+      .service h3 { margin-top: 17px; font-size: 19px; }
+      .services-foot { flex-direction: column; gap: 8px; }
+      .closing { padding: 67px 0; }
+      .closing::after { top: -220px; right: -170px; }
+      .closing h2 { font-size: 43px; }
+      .footer-main { grid-template-columns: 1fr 1fr; gap: 30px 20px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; gap: 7px; }
+    }
+    @media (max-width: 380px) {
+      .service-grid { grid-template-columns: 1fr; }
+      .service { min-height: 145px; }
+      .hero h1 { font-size: 40px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+  <link rel="stylesheet" href="navigation.css">
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Kibbel Financial Planning home">
+        <span class="brand-mark" aria-hidden="true">K</span>
+        <span><span class="brand-name">Kibbel Financial</span><span class="brand-sub">Planning</span></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">Menu</button>
+      <div class="nav-wrap" id="site-navigation">
+        <nav class="primary-nav" aria-label="Main navigation">
+          <a href="index.html" aria-current="page">Home</a>
+          <a href="team.html">Your Team</a>
+          <a href="process.html">Our Process</a>
+          <a href="services.html">Services</a>
+          <a href="site-map.html">Explore</a>
+        </nav>
+        <a class="header-cta" href="mailto:steven@kibbelfp.com?subject=Free%20consultation">Free Consultation</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <img class="hero-image" src="https://kibbelfinancialplanning.com/sites/stevenkibbel.us1.advisor.ws/files/styles/slider_xl/public/images/__1.jpeg?itok=ujivJlvU" alt="" fetchpriority="high">
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-content">
+          <p class="eyebrow">Plan. Build. Protect. Thrive.</p>
+          <h1 id="hero-title">Financial planning for <span class="gold">modern professionals.</span></h1>
+          <p class="hero-copy">Transparent fees. Expert guidance. Comprehensive planning. A clear path to make confident decisions about the life you are building.</p>
+          <div class="hero-actions">
+            <a class="button" href="mailto:steven@kibbelfp.com?subject=Free%20consultation">Book Your Free Consultation</a>
+            <a class="text-link" href="#approach">See how we work</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-note">Serving professionals and families in Tennessee</div>
+    </section>
+
+    <section class="promise" aria-label="Our commitment">
+      <div class="container promise-inner">
+        <p class="promise-label">Our commitment</p>
+        <p class="promise-text">Transparent Fees. <span>Expert Guidance.</span> Comprehensive Planning.</p>
+      </div>
+    </section>
+
+    <section class="section" id="philosophy">
+      <div class="container philosophy">
+        <div class="philosophy-intro">
+          <p class="eyebrow">Our philosophy</p>
+          <h2 class="serif">A plan for the life you want to <em class="gold" style="color:var(--gold)">live.</em></h2>
+          <p>Financial planning is more than a portfolio. It is an ongoing relationship built around your priorities, your questions, and the decisions ahead.</p>
+        </div>
+        <div class="principles">
+          <article class="principle">
+            <span class="principle-number">01</span>
+            <div><h3>Client Focus</h3><p>Your goals and circumstances shape the conversation and the plan.</p></div>
+          </article>
+          <article class="principle">
+            <span class="principle-number">02</span>
+            <div><h3>Education and Empowerment</h3><p>Understand your options and the tradeoffs, so you can make informed decisions.</p></div>
+          </article>
+          <article class="principle">
+            <span class="principle-number">03</span>
+            <div><h3>Long-Term Vision</h3><p>Bring today's choices into focus alongside the future you are working toward.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach" id="approach">
+      <div class="container">
+        <div class="approach-top">
+          <div class="section-head">
+            <p class="eyebrow">Our process</p>
+            <h2>Clear steps. <em class="gold" style="color:var(--gold)">A shared plan.</em></h2>
+          </div>
+          <p>Start with a conversation. Move forward at a pace that makes sense for you.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><span class="step-number">01</span><h3>Discovery Session</h3><p>Talk through what matters to you, where things stand, and what you want to change.</p></article>
+          <article class="step"><span class="step-number">02</span><h3>Customized Planning</h3><p>Bring the moving parts together in a plan shaped around your priorities.</p></article>
+          <article class="step"><span class="step-number">03</span><h3>Implementation</h3><p>Turn recommendations into practical next steps, together.</p></article>
+          <article class="step"><span class="step-number">04</span><h3>Ongoing Review</h3><p>Revisit your plan as life changes and new decisions come into view.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="services-top">
+          <div class="section-head">
+            <p class="eyebrow">How we can help</p>
+            <h2>One view of your <em class="gold" style="color:var(--gold)">financial life.</em></h2>
+            <p>Coordinated guidance across the parts of your finances that affect one another.</p>
+          </div>
+          <a class="text-link" href="mailto:steven@kibbelfp.com?subject=Financial%20planning%20services" style="color:var(--ink)">Talk through your needs</a>
+        </div>
+        <div class="service-grid">
+          <article class="service"><span class="service-index">01 / INVEST</span><h3>Investment Management</h3><p>Portfolio guidance aligned with your financial plan and circumstances.</p></article>
+          <article class="service"><span class="service-index">02 / PLAN</span><h3>Financial Planning</h3><p>Thoughtful coordination of goals, decisions, and financial priorities.</p></article>
+          <article class="service"><span class="service-index">03 / RETIRE</span><h3>Retirement Planning</h3><p>Prepare for the transition from saving for retirement to using your resources.</p></article>
+          <article class="service"><span class="service-index">04 / PROTECT</span><h3>Insurance Planning</h3><p>Review how coverage fits into your broader financial picture.</p></article>
+          <article class="service"><span class="service-index">05 / ORGANIZE</span><h3>Tax and Estate Planning</h3><p>Coordinate with your tax and legal professionals around long-term decisions.</p></article>
+          <article class="service"><span class="service-index">06 / PREPARE</span><h3>Education and Cash Flow</h3><p>Make room in today's plan for education goals and everyday life.</p></article>
+        </div>
+        <div class="services-foot">
+          <p>Services are tailored to each client's needs and circumstances.</p>
+          <p>Fees and scope are discussed clearly before engagement.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing" id="contact">
+      <div class="container closing-inner">
+        <div>
+          <p class="eyebrow">Start with a conversation</p>
+          <h2>Build your financial house on <em class="gold">solid ground.</em></h2>
+          <p class="closing-copy">Bring your questions. We will talk about where you are, what you are working toward, and whether planning together is a fit.</p>
+        </div>
+        <a class="button" href="mailto:steven@kibbelfp.com?subject=Free%20consultation">Schedule a Free Consultation</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a class="brand" href="#home" aria-label="Kibbel Financial Planning home">
+            <span class="brand-mark" aria-hidden="true">K</span>
+            <span><span class="brand-name">Kibbel Financial</span><span class="brand-sub">Planning</span></span>
+          </a>
+          <p>Plan. Build. Protect. Thrive. Financial planning for modern professionals and families.</p>
+        </div>
+        <div class="footer-col">
+          <h2>Get in touch</h2>
+          <a href="tel:+16154370224">615-437-0224</a>
+          <a href="mailto:steven@kibbelfp.com">steven@kibbelfp.com</a>
+          <p>Tennessee</p>
+        </div>
+        <div class="footer-col">
+          <h2>Explore</h2>
+          <a href="about.html#philosophy">Our Philosophy</a>
+          <a href="process.html">Our Process</a>
+          <a href="services.html">Services</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="resources.html">Resources</a>
+          <a href="contact.html">Contact</a>
+          <a href="legal.html#disclosures">Disclosures and Privacy</a>
+          <a href="site-map.html">All Pages</a>
+        </div>
+      </div>
+      <div class="disclosure">
+        <p>Investment Advisory Services: Offered through Shorebreak Capital LLC, a Registered Investment Adviser. Kibbel Financial Planning LLC is owned and operated by Steven Kibbel, an Investment Adviser Representative of Shorebreak Capital LLC. Registration as an investment adviser does not imply a certain level of skill or training. Tax Services &amp; Bookkeeping: Offered through Kibbel Financial Planning LLC as outside business activities, separate from and not offered through Shorebreak Capital LLC. Insurance &amp; Annuities: Commissions may be received on insurance and annuity products. Real Estate: Steven Kibbel may receive real estate commissions in connection with real estate transactions. These outside business activities represent conflicts of interest and are disclosed separately. Full conflict of interest disclosure available at adviserinfo.sec.gov.</p>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 Kibbel Financial Planning</span><a href="https://www.kibbelfinancialplanning.com/">Visit the original website</a></div>
+    </div>
+  </footer>
+
+</body>
+</html>

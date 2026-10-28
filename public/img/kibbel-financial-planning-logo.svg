@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">Kibbel Financial Planning logo</title>
+  <desc id="desc">Gold and silver KFP monogram with the text Kibbel Financial Planning and the phrase Plan now, relax later.</desc>
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" x2="100%" y1="0%" y2="0%">
+      <stop offset="0%" stop-color="#f2d98d"/>
+      <stop offset="18%" stop-color="#deb95a"/>
+      <stop offset="46%" stop-color="#d7b455"/>
+      <stop offset="67%" stop-color="#f1dc98"/>
+      <stop offset="100%" stop-color="#bb8f2f"/>
+    </linearGradient>
+    <linearGradient id="silverGradient" x1="0%" x2="100%" y1="0%" y2="0%">
+      <stop offset="0%" stop-color="#f7f7f7"/>
+      <stop offset="30%" stop-color="#d6d6d6"/>
+      <stop offset="60%" stop-color="#f0f0f0"/>
+      <stop offset="100%" stop-color="#b0b0b0"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="420" fill="#000"/>
+
+  <g transform="translate(30,20)" filter="url(#shadow)">
+    <g transform="translate(0,20)">
+      <path d="M 0 0 L 110 0 L 110 20 L 60 20 L 60 340 L 110 340 L 110 360 L 0 360 L 0 340 L 50 340 L 50 20 L 0 20 Z" fill="url(#goldGradient)"/>
+      <path d="M 80 0 L 220 0 L 220 20 L 150 20 L 150 170 L 220 170 L 220 190 L 150 190 L 150 340 L 220 340 L 220 360 L 80 360 L 80 340 L 120 340 L 120 190 L 80 190 L 80 170 L 120 170 L 120 20 L 80 20 Z" fill="url(#silverGradient)" opacity="0.92"/>
+      <path d="M 90 0 L 220 0 L 220 20 L 150 20 L 150 170 L 220 170 L 220 190 L 150 190 L 150 340 L 220 340 L 220 360 L 90 360 L 90 340 L 124 340 L 124 190 L 90 190 L 90 170 L 124 170 L 124 20 L 90 20 Z" fill="url(#goldGradient)" opacity="0.7"/>
+      <g transform="translate(245,35)">
+        <path d="M 0 170 L 255 50 L 255 95 L 82 190 L 0 170 Z" fill="url(#silverGradient)"/>
+        <path d="M 35 150 L 312 20 L 312 70 L 120 210 L 35 150 Z" fill="#f8f8f8" opacity="0.96"/>
+        <path d="M 25 150 L 300 28 L 300 75 L 110 204 L 25 150 Z" fill="url(#silverGradient)" opacity="0.7"/>
+      </g>
+      <path d="M 245 0 L 440 0 L 440 20 L 305 20 L 305 360 L 440 360 L 440 380 L 245 380 L 245 360 L 280 360 L 280 20 L 245 20 Z" fill="url(#goldGradient)"/>
+    </g>
+
+    <g transform="translate(480,0)">
+      <text x="0" y="135" fill="url(#goldGradient)" font-size="108" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif" letter-spacing="6">KIBBEL</text>
+      <text x="0" y="235" fill="url(#goldGradient)" font-size="108" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif" letter-spacing="6">FINANCIAL</text>
+      <text x="0" y="340" fill="url(#goldGradient)" font-size="108" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif" letter-spacing="6">PLANNING</text>
+      <line x1="0" y1="370" x2="500" y2="370" stroke="url(#goldGradient)" stroke-width="8"/>
+      <text x="510" y="390" fill="#f5f5f5" font-size="38" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif" letter-spacing="8">PLAN NOW, RELAX LATER</text>
+      <line x1="545" y1="372" x2="1150" y2="372" stroke="url(#goldGradient)" stroke-width="8"/>
+    </g>
+  </g>
+</svg>

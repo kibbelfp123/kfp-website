@@ -1,0 +1,63 @@
+.site-header { position: relative; z-index: 5; background: var(--paper); }
+.site-header .container { width: min(var(--content), calc(100% - 64px)); margin-inline: auto; }
+.site-header .header-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+.site-header .brand { display: inline-flex; align-items: center; gap: 12px; flex: 0 0 auto; color: var(--ink); text-decoration: none; }
+.site-header .brand-mark {
+  width: 210px;
+  height: 46px;
+  display: inline-block;
+  border: 0;
+  background: url('https://www.kibbelfinancialplanning.com/sites/stevenkibbel.us1.advisor.ws/files/styles/max_325x325/public/images/kibbel_logo_0.png?itok=OyM-BLyE') center / contain no-repeat;
+  color: transparent;
+  font-size: 0;
+  overflow: hidden;
+}
+.site-header .brand-name, .site-header .brand-sub { display: none; }
+.site-header .nav-wrap { display: flex; align-items: center; gap: 25px; }
+.site-header .primary-nav { min-height: 46px; display: flex; align-items: stretch; gap: 20px; }
+.site-header .primary-nav > a, .site-header .nav-dropdown > summary { min-height: 46px; display: inline-flex; align-items: center; line-height: 1; }
+.site-header .primary-nav a { color: #42413d; font-size: 12px; text-decoration: none; white-space: nowrap; transition: color .2s ease; }
+.site-header .primary-nav a:hover, .site-header .primary-nav a[aria-current="page"] { color: #927328; }
+.site-header .nav-dropdown { position: relative; }
+.site-header .nav-dropdown > summary { display: inline-flex; align-items: center; gap: 9px; color: #42413d; cursor: pointer; font-size: 12px; list-style: none; white-space: nowrap; }
+.site-header .nav-dropdown > summary::-webkit-details-marker { display: none; }
+.site-header .nav-dropdown > summary::after { width: 6px; height: 6px; margin-top: -3px; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; content: ''; transform: rotate(45deg); transition: transform .18s ease, margin .18s ease; }
+.site-header .nav-dropdown[open] > summary::after { margin-top: 3px; transform: rotate(225deg); }
+.site-header .nav-dropdown > summary:hover, .site-header .nav-dropdown > summary[aria-current="page"] { color: #927328; }
+.site-header .explore-menu { position: absolute; top: calc(100% + 19px); right: -165px; z-index: 20; width: min(940px, calc(100vw - 48px)); display: none; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 25px 22px; padding: 26px; background: var(--white); border: 1px solid var(--line); box-shadow: 0 16px 38px rgba(0,0,0,.14); }
+.site-header .nav-dropdown[open] .explore-menu { display: grid; }
+.site-header .explore-category h2 { margin: 0 0 10px; color: #927328; font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.site-header .explore-category a { display: block; padding: 5px 0; color: var(--ink-soft); font-size: 12px; line-height: 1.4; text-decoration: none; }
+.site-header .explore-category a:hover, .site-header .explore-category a:focus-visible { color: #927328; text-decoration: underline; text-underline-offset: 3px; }
+.site-header .explore-all-pages { grid-column: 1 / -1; padding-top: 13px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; text-decoration: none; }
+.site-header .explore-all-pages:hover { color: #927328; }
+.site-header .button, .site-header .header-cta { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; padding: 0 20px; background: var(--gold); border: 1px solid var(--gold); color: var(--ink); font-size: 11px; font-weight: 600; letter-spacing: .07em; text-decoration: none; text-transform: uppercase; white-space: nowrap; transition: background .2s ease; }
+.site-header .button:hover, .site-header .header-cta:hover { background: var(--gold-light); }
+.site-header .menu-toggle { display: none; min-height: 42px; padding: 0 12px; background: transparent; border: 1px solid var(--line); color: var(--ink); font: inherit; font-size: 12px; }
+
+@media (max-width: 900px) {
+  .site-header .container { width: min(var(--content), calc(100% - 44px)); }
+  .site-header .header-inner { min-height: 74px; gap: 15px; }
+  .site-header .nav-wrap { gap: 14px; }
+  .site-header .primary-nav { gap: 12px; }
+  .site-header .primary-nav a { font-size: 11px; }
+  .site-header .button, .site-header .header-cta { padding-inline: 14px; font-size: 10px; }
+}
+
+@media (max-width: 900px) {
+  .site-header .container { width: calc(100% - 40px); }
+  .site-header .header-inner { min-height: 70px; flex-wrap: wrap; }
+  .site-header .brand-mark { width: 170px; height: 38px; }
+  .site-header .brand-name { font-size: 16px; }
+  .site-header .menu-toggle { display: inline-flex; align-items: center; gap: 9px; margin-left: auto; }
+  .site-header .menu-toggle::after { width: 14px; height: 10px; display: inline-block; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; content: ''; }
+  .site-header .nav-wrap { display: none; width: 100%; align-items: stretch; padding: 0 0 17px; }
+  .site-header .nav-wrap.is-open { display: flex; flex-direction: column; }
+  .site-header .primary-nav { min-height: 0; display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; gap: 0 18px; }
+  .site-header .primary-nav > a { min-height: 42px; padding: 0; border-top: 1px solid var(--line); font-size: 13px; }
+  .site-header .nav-dropdown { display: block; grid-column: 1 / -1; border-top: 1px solid var(--line); }
+  .site-header .nav-dropdown > summary { min-height: 42px; width: 100%; padding: 0; font-size: 13px; }
+  .site-header .explore-menu { position: static; width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px 18px; padding: 8px 0 14px; border: 0; box-shadow: none; }
+  .site-header .explore-all-pages { grid-column: 1 / -1; }
+  .site-header .button, .site-header .header-cta { align-self: flex-start; }
+}
