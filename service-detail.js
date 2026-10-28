@@ -101,12 +101,10 @@ const serviceDetails = {
 };
 
 const servicePricing = {
-  'financial-planning': 'comprehensive',
-  'retirement-planning': 'comprehensive',
-  'investment-planning': 'comprehensive',
+  'financial-planning': 'planning-options',
+  'investment-management': 'asset-based',
   'cash-flow-planning': 'hourly',
-  'business-planning': 'hourly',
-  'investment-management': 'asset-based'
+  'business-planning': 'hourly'
 };
 
 const servicePage = document.querySelector('[data-service-page]');
@@ -180,43 +178,17 @@ if (servicePage && service) {
 
   const pricingType = servicePricing[servicePage.dataset.servicePage];
 
-  if (pricingType === 'comprehensive' || pricingType === 'hourly') {
-    const options = pricingType === 'comprehensive'
-      ? [
-          {
-            label: 'Ongoing relationship',
-            title: 'Ongoing Comprehensive Plan',
-            description: 'Ongoing coordination across financial goals and decisions.',
-            prefix: 'Starting at ',
-            amount: '$300'
-          },
-          {
-            label: 'Defined engagement',
-            title: 'One-Time Comprehensive Plan',
-            description: 'A focused plan to organize your financial picture and outline next steps.',
-            prefix: 'Starting at ',
-            amount: '$2,500'
-          }
-        ]
-      : [
-          {
-            label: 'Focused guidance',
-            title: 'Hourly Planning',
-            description: 'Targeted consultation on specific cash-flow or business-planning questions.',
-            prefix: 'Starting at ',
-            amount: '$250 per hour',
-            detail: 'with a 2 hour minimum'
-          }
-        ];
+  if (pricingType === 'planning-options') {
+    pricingHeading.append(create('h2', '', 'Three ways to get a plan that fits your life.'));
+    pricingHeading.append(create('p', '', 'Choose a one-time plan, an ongoing planning membership, or planning included with investment management once you have $300,000 or more in managed assets.'));
+    const options = [
+      { label: 'One-time comprehensive plan', title: 'Planning Engagement', description: 'A written plan with retirement, cash-flow, tax, insurance, and estate-planning considerations.', prefix: 'Starting at ', amount: '$2,500 one-time' },
+      { label: 'Ongoing relationship', title: 'Planning Membership', description: 'An ongoing financial plan updated as your goals and circumstances change.', prefix: 'Starting at ', amount: '$300/month', detail: '12-month minimum, then month-to-month' },
+      { label: '$300,000+ managed assets', title: 'Included With Management', description: 'Financial planning coordinated with your investment management.', amount: 'Planning included', detail: 'at no additional cost' },
+      { label: 'À la carte advice', title: 'Focused Guidance', description: 'Targeted advice for a specific question or decision.', prefix: 'Starting at ', amount: '$250/hour', detail: 'Two-hour minimum' }
+    ];
 
-    pricingHeading.append(create('h2', '', pricingType === 'comprehensive'
-      ? 'Comprehensive planning fees.'
-      : 'Hourly planning fee.'));
-    pricingHeading.append(create('p', '', pricingType === 'comprehensive'
-      ? 'These are engagement-level fees for comprehensive planning. The scope and applicable fee are discussed before you decide whether to move forward.'
-      : 'Hourly planning is available for focused cash-flow and business-planning questions. The scope is discussed before work begins.'));
-
-    const pricingOptions = create('div', 'three-column');
+    const pricingOptions = create('div', 'pricing-options');
 
     options.forEach((option) => {
       const card = create('article', 'item');
@@ -233,33 +205,33 @@ if (servicePage && service) {
 
     pricingContainer.append(pricingHeading, pricingOptions);
   } else if (pricingType === 'asset-based') {
-    pricingHeading.append(create('h2', '', 'Asset-based fee schedule.'));
-    pricingHeading.append(create('p', '', 'The fee is 1% for non-financial planning clients on assets up to $2,000,000. Other client and asset tiers have different rates, as shown below.'));
+    pricingHeading.append(create('h2', '', 'One flat advisory fee.'));
+    pricingHeading.append(create('p', '', 'Investment management is billed at 1.00% of managed assets per year, monthly in arrears. There are no tiers or asset minimums. Financial planning is included at no additional cost once managed assets reach $300,000.'));
 
     const tableWrap = create('div', 'fee-table-wrap');
     const table = create('table', 'fee-table');
     const tableHead = document.createElement('thead');
     const headerRow = document.createElement('tr');
-    ['Client relationship', 'Assets up to $2,000,000', 'Assets above $2,000,000'].forEach((label) => {
+    ['Managed assets', 'Annual advisory fee', 'Financial planning'].forEach((label) => {
       headerRow.append(create('th', '', label));
     });
     tableHead.append(headerRow);
     const tableBody = document.createElement('tbody');
     [
-      ['Non-Financial Planning Clients', '1%', '0.75%'],
-      ['Financial Planning Clients', '0.75%', '0.75%']
-    ].forEach(([relationship, below, above]) => {
+      ['Any amount', '1.00%', 'Available separately'],
+      ['$300,000 and above', '1.00%', 'Included at no additional cost']
+    ].forEach(([assets, fee, planning]) => {
       const row = document.createElement('tr');
-      row.append(create('th', '', relationship), create('td', '', below), create('td', '', above));
+      row.append(create('th', '', assets), create('td', '', fee), create('td', '', planning));
       tableBody.append(row);
     });
     table.append(tableHead, tableBody);
     tableWrap.append(table);
     pricingContainer.append(pricingHeading, tableWrap);
   } else {
-    pricingHeading.append(create('h2', '', 'Discuss pricing for your needs.'));
-    pricingHeading.append(create('p', '', `No service-specific rate is listed for ${service.title}. Any fee depends on the scope of the broader planning engagement.`));
-    const pricingLink = create('a', 'external-arrow', 'View planning and investment fees');
+    pricingHeading.append(create('h2', '', 'Part of your comprehensive financial plan.'));
+    pricingHeading.append(create('p', '', `${service.title} can be addressed as part of financial planning. Review the available planning relationships and investment management fees.`));
+    const pricingLink = create('a', 'external-arrow', 'View planning and investment pricing');
     pricingLink.href = 'pricing.html';
     pricingContainer.append(pricingHeading, pricingLink);
   }

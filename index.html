@@ -70,6 +70,38 @@
     .promise-label { margin: 0; color: var(--gold-light); font-size: 10px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; }
     .promise-text { margin: 0; font-family: var(--serif); font-size: clamp(19px, 2.4vw, 27px); }
     .promise-text span { color: var(--gold-light); }
+    .proof-points { padding: 28px 0; background: var(--white); }
+    .proof-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .proof-item { padding: 5px 22px; border-left: 1px solid var(--line); }
+    .proof-item:first-child { padding-left: 0; border-left: 0; }
+    .proof-value { display: block; font-family: var(--serif); font-size: 30px; line-height: 1.15; }
+    .proof-label { margin: 5px 0 0; color: var(--muted); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+    .what-you-get { padding: 72px 0; }
+    .what-you-get-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 65px; align-items: start; }
+    .benefit-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+    .benefit-list li { padding: 13px 0; border-bottom: 1px solid var(--line); color: var(--ink-soft); }
+    .primary-service-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .primary-service { min-height: 250px; padding: 30px; background: var(--white); border: 1px solid var(--line); }
+    .primary-service h3 { margin: 16px 0 9px; font-family: var(--serif); font-size: 28px; font-weight: 400; }
+    .primary-service p { max-width: 470px; margin: 0; color: var(--muted); font-size: 13px; font-weight: 300; }
+    .primary-service .service-more { margin-top: 18px; }
+    .management-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+    .management-detail h2, .planning-detail h2 { margin: 0; font-family: var(--serif); font-size: clamp(34px, 4vw, 48px); font-weight: 400; line-height: 1.12; }
+    .management-detail p, .planning-detail p { color: var(--muted); font-weight: 300; }
+    .management-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+    .management-list li { padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .planning-areas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 24px; margin-top: 34px; border-top: 1px solid var(--line); }
+    .planning-area { padding: 19px 0; border-bottom: 1px solid var(--line); }
+    .planning-area a { color: var(--ink); font-family: var(--serif); font-size: 20px; text-decoration: none; }
+    .planning-area p { margin: 6px 0 0; font-size: 12px; }
+    .pricing-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .faq-preview { border-top: 1px solid var(--line); }
+    .faq-preview details { padding: 17px 0; border-bottom: 1px solid var(--line); }
+    .faq-preview summary { cursor: pointer; font-family: var(--serif); font-size: 20px; list-style: none; }
+    .faq-preview summary::-webkit-details-marker { display: none; }
+    .faq-preview details p { max-width: 760px; margin: 10px 0 0; color: var(--muted); font-size: 13px; }
+    .contact-methods { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 19px; }
+    .contact-methods a { color: var(--gold-light); font-size: 12px; text-decoration: none; }
 
     .section { padding: 104px 0; }
     .feed-post { width: min(1280px, calc(100% - 48px)); margin: 24px auto; border: 1px solid var(--line); background: rgba(255,255,255,.76); }
@@ -147,6 +179,7 @@
       .header-cta { padding-inline: 15px; font-size: 10px; }
       .hero { min-height: 590px; }
       .philosophy { gap: 48px; }
+      .what-you-get-grid, .management-detail { gap: 34px; }
       .service { padding-inline: 20px; }
       .closing-inner { align-items: start; flex-direction: column; }
       .footer-main { gap: 28px; }
@@ -173,6 +206,15 @@
       .hero-note { right: 20px; bottom: 18px; left: 20px; font-size: 9px; }
       .promise { padding: 25px 0; }
       .promise-inner { align-items: flex-start; flex-direction: column; gap: 8px; }
+      .proof-grid { grid-template-columns: 1fr 1fr; gap: 19px 0; }
+      .proof-item:nth-child(odd) { padding-left: 0; border-left: 0; }
+      .proof-value { font-size: 25px; }
+      .what-you-get-grid, .management-detail { grid-template-columns: 1fr; gap: 25px; }
+      .what-you-get { padding: 58px 0; }
+      .primary-service-grid, .pricing-options { grid-template-columns: 1fr; }
+      .primary-service { min-height: 0; padding: 23px; }
+      .planning-areas { grid-template-columns: 1fr 1fr; gap: 0 16px; }
+      .contact-methods { flex-direction: column; gap: 8px; }
       .section { padding: 75px 0; }
       .philosophy { grid-template-columns: 1fr; gap: 38px; }
       .philosophy-intro { position: static; }
@@ -241,9 +283,9 @@
         <div class="hero-content">
           <p class="eyebrow">Plan. Build. Protect. Thrive.</p>
           <h1 id="hero-title">Smarter planning. <span class="gold">Built around you.</span></h1>
-          <p class="hero-copy">Transparent fees. Expert guidance. Comprehensive planning. A clear path to make confident decisions about the life you are building.</p>
+          <p class="hero-copy">Comprehensive financial planning and investment management for professionals, families, and business owners. One flat, transparent fee. A real advisor who knows your whole financial life.</p>
           <div class="hero-actions">
-            <a class="button" href="https://calendar.app.google/vGqFamm5debhofco8" target="_blank" rel="noopener noreferrer">Book Your Free Consultation</a>
+            <a class="button" href="https://calendar.app.google/vGqFamm5debhofco8" target="_blank" rel="noopener noreferrer">Book a Free Call</a>
             <a class="text-link" href="#approach">See how we work</a>
           </div>
         </div>
@@ -258,12 +300,35 @@
       </div>
     </section>
 
+    <section class="proof-points" aria-label="Planning and investment highlights">
+      <div class="container proof-grid">
+        <div class="proof-item"><span class="proof-value">Fiduciary</span><p class="proof-label">When providing investment advice</p></div>
+        <div class="proof-item"><span class="proof-value">1.00%</span><p class="proof-label">Flat annual advisory fee</p></div>
+        <div class="proof-item"><span class="proof-value">$0</span><p class="proof-label">Asset minimum to start</p></div>
+        <div class="proof-item"><span class="proof-value">$300,000+</span><p class="proof-label">Planning included with management</p></div>
+      </div>
+    </section>
+
+    <section class="what-you-get">
+      <div class="container what-you-get-grid">
+        <div><p class="eyebrow">What you get</p><h2 class="serif" style="margin:0;font-size:clamp(34px,4vw,48px);line-height:1.12">Your whole financial life, in view.</h2><p style="color:var(--muted);font-weight:300">A plan that connects the decisions that affect one another, with a real advisor available throughout the year.</p></div>
+        <ul class="benefit-list">
+          <li>A comprehensive plan that covers more than your portfolio</li>
+          <li>Diversified, low-cost investment management</li>
+          <li>One flat 1.00% advisory fee, with planning included as managed assets grow</li>
+          <li>Clear explanations of fees and conflicts of interest</li>
+          <li>Advisor access by call, text, or email</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="section feed-post" id="philosophy">
       <div class="container philosophy">
         <div class="philosophy-intro">
           <p class="eyebrow">Our philosophy</p>
-          <h2 class="serif">A plan for the life you want to <em class="gold" style="color:var(--gold)">live.</em></h2>
-          <p>Financial planning is more than a portfolio. It is an ongoing relationship built around your priorities, your questions, and the decisions ahead.</p>
+          <h2 class="serif">A financial partner <em class="gold" style="color:var(--gold)">who knows you.</em></h2>
+          <p>Kibbel Financial Planning was built on a simple idea: people deserve real financial guidance, a dedicated advisor, and fees they can understand at every asset level.</p>
+          <p>We look at the whole picture: cash flow, insurance, investments, retirement, taxes, and estate planning. Faith informs this work through integrity, humility, and a genuine desire to serve people well.</p>
         </div>
         <div class="principles">
           <article class="principle">
@@ -272,7 +337,7 @@
           </article>
           <article class="principle">
             <span class="principle-number">02</span>
-            <div><h3>Education and Empowerment</h3><p>Understand your options and the tradeoffs, so you can make informed decisions.</p></div>
+            <div><h3>Plain-language guidance</h3><p>Understand your options and tradeoffs so you can make informed decisions.</p></div>
           </article>
           <article class="principle">
             <span class="principle-number">03</span>
@@ -305,22 +370,41 @@
         <div class="services-top">
           <div class="section-head">
             <p class="eyebrow">How we can help</p>
-            <h2>One view of your <em class="gold" style="color:var(--gold)">financial life.</em></h2>
-            <p>Coordinated guidance across the parts of your finances that affect one another.</p>
+            <h2>Two services, <em class="gold" style="color:var(--gold)">done well.</em></h2>
+              <p>Comprehensive financial planning and disciplined investment management, coordinated so decisions work together.</p>
           </div>
           <a class="text-link" href="mailto:steven@kibbelfp.com?subject=Financial%20planning%20services" style="color:var(--ink)">Talk through your needs</a>
         </div>
-        <div class="service-grid">
-          <article class="service"><span class="service-index">01 / INVEST</span><h3>Investment Management</h3><p>Portfolio guidance aligned with your financial plan and circumstances.</p></article>
-          <article class="service"><span class="service-index">02 / PLAN</span><h3>Financial Planning</h3><p>Thoughtful coordination of goals, decisions, and financial priorities.</p></article>
-          <article class="service"><span class="service-index">03 / RETIRE</span><h3>Retirement Planning</h3><p>Prepare for the transition from saving for retirement to using your resources.</p></article>
-          <article class="service"><span class="service-index">04 / PROTECT</span><h3>Insurance Planning</h3><p>Review how coverage fits into your broader financial picture.</p></article>
-          <article class="service"><span class="service-index">05 / ORGANIZE</span><h3>Tax and Estate Planning</h3><p>Coordinate with your tax and legal professionals around long-term decisions.</p></article>
-          <article class="service"><span class="service-index">06 / PREPARE</span><h3>Education and Cash Flow</h3><p>Make room in today's plan for education goals and everyday life.</p></article>
+        <div class="primary-service-grid">
+          <article class="primary-service"><span class="service-index">01 / INVESTMENT MANAGEMENT</span><h3>Disciplined investing, one flat fee.</h3><p>Diversified, low-cost portfolios built around your goals, time horizon, and risk tolerance, with tax-aware placement, ongoing rebalancing, and independent custody.</p><a class="service-more" href="investment-management.html">Investment management details</a></article>
+          <article class="primary-service"><span class="service-index">02 / FINANCIAL PLANNING</span><h3>A plan for your whole financial life.</h3><p>Cash flow, insurance, investments, retirement, tax strategy, and estate-planning coordination, updated as your life changes.</p><a class="service-more" href="financial-planning.html">Financial planning details</a></article>
         </div>
         <div class="services-foot">
-          <p>Services are tailored to each client's needs and circumstances.</p>
-          <p>Fees and scope are discussed clearly before engagement.</p>
+          <p>Investment management is available at any asset level for a flat 1.00% annual advisory fee.</p>
+          <p>Planning is included at no additional cost starting at $300,000 in managed assets.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section feed-post" id="investment-approach">
+      <div class="container management-detail">
+        <div><p class="eyebrow">How we invest</p><h2>Diversified, low-cost portfolios. <em class="gold" style="color:var(--gold)">One flat fee.</em></h2><p>We align the portfolio with your goals and risk tolerance, then coordinate account placement and review as your circumstances change.</p><p><strong>1.00% per year</strong>, billed monthly in arrears. No tiers, breakpoints, or asset minimums.</p></div>
+        <ul class="management-list"><li>Diversified, low-cost ETF portfolios</li><li>Allocation matched to goals and risk tolerance</li><li>Tax-efficient placement across account types</li><li>Ongoing rebalancing and review</li><li>Independent third-party custody; accounts remain yours</li><li>Planning included at no additional cost from $300,000 in managed assets</li></ul>
+      </div>
+    </section>
+
+    <section class="section feed-post" id="financial-planning">
+      <div class="container planning-detail">
+        <p class="eyebrow">Comprehensive financial planning</p>
+        <h2>A plan that covers your <em class="gold" style="color:var(--gold)">whole financial life.</em></h2>
+        <p>Financial planning is an ongoing strategy that evolves with your income, family, goals, and circumstances. We coordinate the pieces so your next steps work together.</p>
+        <div class="planning-areas">
+          <article class="planning-area"><a href="cash-flow-planning.html">Cash Flow &amp; Income</a><p>Map income, spending, savings, and the gaps between today and your goals.</p></article>
+          <article class="planning-area"><a href="insurance-planning.html">Insurance &amp; Risk</a><p>Review protection needs and identify coverage questions to address.</p></article>
+          <article class="planning-area"><a href="investment-planning.html">Investments</a><p>Coordinate investment choices with your broader financial plan.</p></article>
+          <article class="planning-area"><a href="retirement-planning.html">Retirement</a><p>Consider retirement income, timing, Social Security, and Medicare.</p></article>
+          <article class="planning-area"><a href="tax-planning.html">Tax Planning</a><p>Consider tax strategy and coordinate with your tax professional.</p></article>
+          <article class="planning-area"><a href="estate-planning.html">Estate Planning</a><p>Coordinate beneficiary and estate questions with your attorney.</p></article>
         </div>
       </div>
     </section>
@@ -329,15 +413,29 @@
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">Ways to work together</p>
-          <h2>Choose a planning relationship that matches the work.</h2>
-          <p>We discuss the scope, services, and fees with you before you decide whether to move forward.</p>
+          <h2>Choose how you want to work together.</h2>
+          <p>Start with a one-time plan, keep it current through a membership, or have planning included with investment management.</p>
         </div>
-        <div class="three-column">
-          <article class="pricing-option"><span class="item-index">Ongoing relationship</span><h3>Ongoing Comprehensive Plan</h3><p>Ongoing planning for clients who want continuing coordination across cash flow, investments, retirement, tax considerations, and other financial decisions.</p><p class="price-amount">Starting at <strong>$300</strong></p></article>
-          <article class="pricing-option"><span class="item-index">Defined engagement</span><h3>One-Time Comprehensive Plan</h3><p>A focused planning engagement to organize your financial picture, answer agreed questions, and outline practical next steps.</p><p class="price-amount">Starting at <strong>$2,500</strong></p></article>
-          <article class="pricing-option"><span class="item-index">Focused guidance</span><h3>Hourly Planning</h3><p>Targeted consultation on specific topics, such as cash flow or business planning, with the scope set around the questions you bring.</p><p class="price-amount">Starting at <strong>$250 per hour</strong><span>with a 2 hour minimum</span></p></article>
+        <div class="pricing-options">
+          <article class="pricing-option"><span class="item-index">One-time comprehensive plan</span><h3>Planning Engagement</h3><p>A written plan with retirement, cash-flow, tax, insurance, estate-planning considerations, and prioritized next steps.</p><p class="price-amount">Starting at <strong>$2,500 one-time</strong></p></article>
+          <article class="pricing-option"><span class="item-index">Ongoing relationship</span><h3>Planning Membership</h3><p>A comprehensive plan updated regularly, with ongoing advisor access.</p><p class="price-amount">Starting at <strong>$300/month</strong><span>12-month minimum, then month-to-month</span></p></article>
+          <article class="pricing-option"><span class="item-index">$300,000+ managed assets</span><h3>Included With Management</h3><p>Financial planning and investment management coordinated as one strategy.</p><p class="price-amount"><strong>Planning included</strong><span>At no additional cost with the 1.00% advisory fee</span></p></article>
+          <article class="pricing-option"><span class="item-index">À la carte advice</span><h3>Focused Guidance</h3><p>Targeted advice for a specific question or decision, without an ongoing commitment.</p><p class="price-amount">Starting at <strong>$250/hour</strong><span>Two-hour minimum</span></p></article>
         </div>
-        <p class="services-foot">Starting prices and rates are shown as listed by the firm. Confirm current fees, billing terms, and scope directly before engagement.</p>
+        <p class="services-foot"><a class="service-more" href="pricing.html">View the full fee schedule and billing details</a><span>Fees are described in Form ADV Part 2 and the client agreement before engagement.</span></p>
+      </div>
+    </section>
+
+    <section class="section feed-post" id="quick-answers">
+      <div class="container">
+        <div class="section-head"><p class="eyebrow">Common questions</p><h2>Questions, answered.</h2></div>
+        <div class="faq-preview">
+          <details><summary>Is there a minimum to work with you?</summary><p>No. Investment management is available at any asset level for a flat 1.00% annual advisory fee. Financial planning is available separately or included with management at $300,000 or more in managed assets.</p></details>
+          <details><summary>Can I get financial planning without investment management?</summary><p>Yes. Choose a one-time engagement starting at $2,500 or a planning membership starting at $300 per month.</p></details>
+          <details><summary>Are there hidden fees?</summary><p>The advisory fee is separate from third-party charges such as custodian fees or internal ETF expenses. These are disclosed by the custodian and fund.</p></details>
+          <details><summary>How do I reach my advisor?</summary><p>By call, text, or email. Start with a free 30-minute conversation, with no obligation.</p></details>
+        </div>
+        <p><a class="service-more" href="resources.html#faq">See all frequently asked questions</a></p>
       </div>
     </section>
 
@@ -345,10 +443,11 @@
       <div class="container closing-inner">
         <div>
           <p class="eyebrow">Start with a conversation</p>
-          <h2>Build your financial house on <em class="gold">solid ground.</em></h2>
-          <p class="closing-copy">Bring your questions. We will talk about where you are, what you are working toward, and whether planning together is a fit.</p>
+          <h2>Let's start a <em class="gold">conversation.</em></h2>
+          <p class="closing-copy">Start with a free 30-minute conversation. No obligation. We will answer your questions and help you decide whether we are a good fit.</p>
+          <div class="contact-methods"><a href="mailto:steven@kibbelfp.com">steven@kibbelfp.com</a><a href="tel:+16154370224">Call or text 615-437-0224</a></div>
         </div>
-        <a class="button" href="https://calendar.app.google/vGqFamm5debhofco8" target="_blank" rel="noopener noreferrer">Schedule a Free Consultation</a>
+        <a class="button" href="https://calendar.app.google/vGqFamm5debhofco8" target="_blank" rel="noopener noreferrer">Book a Free Call</a>
       </div>
     </section>
   </main>
