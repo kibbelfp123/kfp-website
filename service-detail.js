@@ -100,6 +100,15 @@ const serviceDetails = {
   }
 };
 
+const servicePricing = {
+  'financial-planning': 'comprehensive',
+  'retirement-planning': 'comprehensive',
+  'investment-planning': 'comprehensive',
+  'cash-flow-planning': 'hourly',
+  'business-planning': 'hourly',
+  'investment-management': 'asset-based'
+};
+
 const servicePage = document.querySelector('[data-service-page]');
 const service = serviceDetails[servicePage?.dataset.servicePage];
 
@@ -164,6 +173,101 @@ if (servicePage && service) {
   container.append(heading, columns, note);
   section.append(container);
 
+  const pricingSection = create('section', 'section section-muted');
+  const pricingContainer = create('div', 'container');
+  const pricingHeading = create('div', 'section-heading');
+  pricingHeading.append(create('p', 'eyebrow', 'Fees and pricing'));
+
+  const pricingType = servicePricing[servicePage.dataset.servicePage];
+
+  if (pricingType === 'comprehensive' || pricingType === 'hourly') {
+    const options = pricingType === 'comprehensive'
+      ? [
+          {
+            label: 'Ongoing relationship',
+            title: 'Ongoing Comprehensive Plan',
+            description: 'Ongoing coordination across financial goals and decisions.',
+            prefix: 'Starting at ',
+            amount: '$300'
+          },
+          {
+            label: 'Defined engagement',
+            title: 'One-Time Comprehensive Plan',
+            description: 'A focused plan to organize your financial picture and outline next steps.',
+            prefix: 'Starting at ',
+            amount: '$2,500'
+          }
+        ]
+      : [
+          {
+            label: 'Focused guidance',
+            title: 'Hourly Planning',
+            description: 'Targeted consultation on specific cash-flow or business-planning questions.',
+            prefix: 'Starting at ',
+            amount: '$250 per hour',
+            detail: 'with a 2 hour minimum'
+          }
+        ];
+
+    pricingHeading.append(create('h2', '', pricingType === 'comprehensive'
+      ? 'Comprehensive planning fees.'
+      : 'Hourly planning fee.'));
+    pricingHeading.append(create('p', '', pricingType === 'comprehensive'
+      ? 'These are engagement-level fees for comprehensive planning. The scope and applicable fee are discussed before you decide whether to move forward.'
+      : 'Hourly planning is available for focused cash-flow and business-planning questions. The scope is discussed before work begins.'));
+
+    const pricingOptions = create('div', 'three-column');
+
+    options.forEach((option) => {
+      const card = create('article', 'item');
+      card.append(create('span', 'item-index', option.label));
+      card.append(create('h2', '', option.title));
+      card.append(create('p', '', option.description));
+      const amount = create('p', 'price-amount');
+      if (option.prefix) amount.append(option.prefix);
+      amount.append(create('strong', '', option.amount));
+      if (option.detail) amount.append(create('span', '', option.detail));
+      card.append(amount);
+      pricingOptions.append(card);
+    });
+
+    pricingContainer.append(pricingHeading, pricingOptions);
+  } else if (pricingType === 'asset-based') {
+    pricingHeading.append(create('h2', '', 'Asset-based fee schedule.'));
+    pricingHeading.append(create('p', '', 'The fee is 1% for non-financial planning clients on assets up to $2,000,000. Other client and asset tiers have different rates, as shown below.'));
+
+    const tableWrap = create('div', 'fee-table-wrap');
+    const table = create('table', 'fee-table');
+    const tableHead = document.createElement('thead');
+    const headerRow = document.createElement('tr');
+    ['Client relationship', 'Assets up to $2,000,000', 'Assets above $2,000,000'].forEach((label) => {
+      headerRow.append(create('th', '', label));
+    });
+    tableHead.append(headerRow);
+    const tableBody = document.createElement('tbody');
+    [
+      ['Non-Financial Planning Clients', '1%', '0.75%'],
+      ['Financial Planning Clients', '0.75%', '0.75%']
+    ].forEach(([relationship, below, above]) => {
+      const row = document.createElement('tr');
+      row.append(create('th', '', relationship), create('td', '', below), create('td', '', above));
+      tableBody.append(row);
+    });
+    table.append(tableHead, tableBody);
+    tableWrap.append(table);
+    pricingContainer.append(pricingHeading, tableWrap);
+  } else {
+    pricingHeading.append(create('h2', '', 'Discuss pricing for your needs.'));
+    pricingHeading.append(create('p', '', `No service-specific rate is listed for ${service.title}. Any fee depends on the scope of the broader planning engagement.`));
+    const pricingLink = create('a', 'external-arrow', 'View planning and investment fees');
+    pricingLink.href = 'pricing.html';
+    pricingContainer.append(pricingHeading, pricingLink);
+  }
+
+  const pricingNote = create('p', 'pricing-note', 'Confirm current fees, billing terms, and the scope of services directly before engagement.');
+  pricingContainer.append(pricingNote);
+  pricingSection.append(pricingContainer);
+
   const cta = create('section', 'cta-band');
   const ctaContainer = create('div', 'container cta-inner');
   const ctaCopy = create('div');
@@ -174,5 +278,5 @@ if (servicePage && service) {
   ctaContainer.append(ctaCopy, contactLink);
   cta.append(ctaContainer);
 
-  servicePage.replaceChildren(hero, breadcrumb, section, cta);
+  servicePage.replaceChildren(hero, breadcrumb, section, pricingSection, cta);
 }

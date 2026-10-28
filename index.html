@@ -72,6 +72,8 @@
     .promise-text span { color: var(--gold-light); }
 
     .section { padding: 104px 0; }
+    .feed-post { width: min(1280px, calc(100% - 48px)); margin: 24px auto; border: 1px solid var(--line); background: rgba(255,255,255,.76); }
+    .feed-post .container { width: min(var(--content), calc(100% - 64px)); }
     .section-head { max-width: 660px; margin-bottom: 48px; }
     .section-head h2 { margin: 0; font-family: var(--serif); font-size: clamp(36px, 4.7vw, 54px); font-weight: 400; line-height: 1.12; }
     .section-head p { max-width: 590px; margin: 17px 0 0; color: var(--muted); font-weight: 300; }
@@ -107,6 +109,14 @@
     .service p { margin: 0; color: var(--muted); font-size: 12px; font-weight: 300; }
     .services-foot { display: flex; justify-content: space-between; gap: 25px; margin-top: 24px; color: var(--muted); font-size: 12px; }
     .services-foot p { margin: 0; }
+    .three-column { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+    .pricing-option { min-height: 270px; padding: 25px 27px; background: rgba(255,255,255,.65); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .pricing-option h3 { margin: 0; font-family: var(--serif); font-size: 23px; font-weight: 400; line-height: 1.24; }
+    .pricing-option p { margin: 9px 0 0; color: var(--muted); font-size: 13px; font-weight: 300; }
+    .pricing-option .item-index { display: block; margin-bottom: 15px; color: #927328; font-size: 10px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
+    .pricing-option .price-amount { margin-top: 18px; color: #927328; font-family: var(--serif); font-size: 20px; }
+    .pricing-option .price-amount strong { font-weight: 500; }
+    .pricing-option .price-amount span { display: block; margin-top: 2px; color: var(--muted); font-family: var(--sans); font-size: 11px; }
 
     .closing { position: relative; overflow: hidden; padding: 83px 0 88px; background: var(--ink); color: var(--white); }
     .closing::after { position: absolute; top: -105px; right: 7%; width: 330px; height: 330px; border: 1px solid rgba(197,163,74,.25); border-radius: 50%; content: ''; }
@@ -186,6 +196,8 @@
       .footer-main { grid-template-columns: 1fr 1fr; gap: 30px 20px; }
       .footer-brand { grid-column: 1 / -1; }
       .footer-bottom { flex-direction: column; gap: 7px; }
+      .three-column { grid-template-columns: 1fr; }
+      .pricing-option { min-height: 0; padding: 22px; }
     }
     @media (max-width: 380px) {
       .service-grid { grid-template-columns: 1fr; }
@@ -228,7 +240,7 @@
       <div class="container">
         <div class="hero-content">
           <p class="eyebrow">Plan. Build. Protect. Thrive.</p>
-          <h1 id="hero-title">Financial planning for <span class="gold">modern professionals.</span></h1>
+          <h1 id="hero-title">Smarter planning. <span class="gold">Built around you.</span></h1>
           <p class="hero-copy">Transparent fees. Expert guidance. Comprehensive planning. A clear path to make confident decisions about the life you are building.</p>
           <div class="hero-actions">
             <a class="button" href="https://calendar.app.google/vGqFamm5debhofco8" target="_blank" rel="noopener noreferrer">Book Your Free Consultation</a>
@@ -246,7 +258,7 @@
       </div>
     </section>
 
-    <section class="section" id="philosophy">
+    <section class="section feed-post" id="philosophy">
       <div class="container philosophy">
         <div class="philosophy-intro">
           <p class="eyebrow">Our philosophy</p>
@@ -270,7 +282,7 @@
       </div>
     </section>
 
-    <section class="approach" id="approach">
+    <section class="approach feed-post" id="approach">
       <div class="container">
         <div class="approach-top">
           <div class="section-head">
@@ -288,7 +300,7 @@
       </div>
     </section>
 
-    <section class="services" id="services">
+    <section class="services feed-post" id="services">
       <div class="container">
         <div class="services-top">
           <div class="section-head">
@@ -310,6 +322,22 @@
           <p>Services are tailored to each client's needs and circumstances.</p>
           <p>Fees and scope are discussed clearly before engagement.</p>
         </div>
+      </div>
+    </section>
+
+    <section class="section feed-post" id="planning-options">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Ways to work together</p>
+          <h2>Choose a planning relationship that matches the work.</h2>
+          <p>We discuss the scope, services, and fees with you before you decide whether to move forward.</p>
+        </div>
+        <div class="three-column">
+          <article class="pricing-option"><span class="item-index">Ongoing relationship</span><h3>Ongoing Comprehensive Plan</h3><p>Ongoing planning for clients who want continuing coordination across cash flow, investments, retirement, tax considerations, and other financial decisions.</p><p class="price-amount">Starting at <strong>$300</strong></p></article>
+          <article class="pricing-option"><span class="item-index">Defined engagement</span><h3>One-Time Comprehensive Plan</h3><p>A focused planning engagement to organize your financial picture, answer agreed questions, and outline practical next steps.</p><p class="price-amount">Starting at <strong>$2,500</strong></p></article>
+          <article class="pricing-option"><span class="item-index">Focused guidance</span><h3>Hourly Planning</h3><p>Targeted consultation on specific topics, such as cash flow or business planning, with the scope set around the questions you bring.</p><p class="price-amount">Starting at <strong>$250 per hour</strong><span>with a 2 hour minimum</span></p></article>
+        </div>
+        <p class="services-foot">Starting prices and rates are shown as listed by the firm. Confirm current fees, billing terms, and scope directly before engagement.</p>
       </div>
     </section>
 
