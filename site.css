@@ -48,7 +48,8 @@ img { display: block; max-width: 100%; }
 .eyebrow { display: flex; align-items: center; gap: 12px; margin: 0 0 17px; color: var(--gold); font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
 .eyebrow::before { width: 26px; height: 1px; background: currentColor; content: ''; }
 .page-hero .eyebrow { color: var(--gold-light); }
-.page-hero h1 { max-width: 760px; margin: 0; font-family: var(--serif); font-size: clamp(42px, 5.6vw, 65px); font-weight: 400; line-height: 1.08; }
+.hero-title { display: flex; flex-direction: column; max-width: 760px; margin: 0; font-family: var(--serif); font-size: clamp(42px, 5.6vw, 65px); font-weight: 400; line-height: 1.08; }
+.hero-title .gold { display: block; color: var(--gold-light); }
 .page-hero h1 em { color: var(--gold-light); font-weight: 400; }
 .page-hero-copy { max-width: 630px; margin: 18px 0 0; color: rgba(255,255,255,.78); font-size: 15px; font-weight: 300; }
 .breadcrumb { padding: 13px 0; background: var(--paper-deep); color: var(--muted); font-size: 11px; }
