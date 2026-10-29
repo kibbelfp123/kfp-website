@@ -1,6 +1,7 @@
 const serviceDetails = {
   'financial-planning': {
     title: 'Financial Planning',
+    sectionHeading: 'Build a financial plan around your priorities.',
     approachHeading: 'A plan built around the full picture.',
     description: 'A holistic view of your finances, values, objectives, and concerns to guide planning recommendations.',
     overview: 'Financial planning brings the parts of your financial life into one coordinated conversation. The starting point is understanding what matters to you, where things stand today, and the decisions you want to make.',
@@ -10,6 +11,7 @@ const serviceDetails = {
   },
   'investment-management': {
     title: 'Investment Management',
+    sectionHeading: 'A portfolio aligned with your goals.',
     approachHeading: 'Investment decisions with your goals in view.',
     description: 'Investment management considers your goals, time horizon, resources, and comfort with investment risk.',
     overview: 'Investment management focuses on how your financial assets fit your broader plan. The conversation can include the purpose of each account, your time horizon, liquidity needs, and how much uncertainty you can accept.',
@@ -19,6 +21,7 @@ const serviceDetails = {
   },
   'retirement-planning': {
     title: 'Retirement Planning',
+    sectionHeading: 'What do you want retirement to make possible?',
     approachHeading: 'A retirement plan shaped by your next chapter.',
     description: 'Prepare for retirement by considering your goals, savings, timing, income needs, and available resources.',
     overview: 'Retirement planning starts before retirement. It considers the life you hope to lead, the resources available, and the choices you may face as you move from saving toward using your assets.',
@@ -28,6 +31,7 @@ const serviceDetails = {
   },
   'investment-planning': {
     title: 'Investment Planning',
+    sectionHeading: 'Give your investment decisions a clear purpose.',
     approachHeading: 'An investment approach grounded in your goals.',
     description: 'Connect investment choices to your financial goals, available resources, time horizon, and risk considerations.',
     overview: 'Investment planning identifies the goals your investments are meant to support and how those goals relate to your broader financial picture. It starts with your current resources and the timing of your needs.',
@@ -37,6 +41,7 @@ const serviceDetails = {
   },
   'insurance-planning': {
     title: 'Insurance Planning',
+    sectionHeading: 'Protect the people and plans that matter.',
     approachHeading: 'Protection choices for your real life.',
     description: 'Review how insurance and other protection strategies may address risks to your income, family, and assets.',
     overview: 'Insurance planning looks at risks that could affect your financial goals and reviews how existing coverage fits your needs. The right questions depend on your family, work, assets, and other resources.',
@@ -46,6 +51,7 @@ const serviceDetails = {
   },
   'tax-planning': {
     title: 'Tax Planning',
+    sectionHeading: 'Bring tax considerations into your bigger picture.',
     approachHeading: 'Tax considerations, connected to your plan.',
     description: 'Consider how taxes relate to cash flow, investments, retirement, and other financial decisions.',
     overview: 'Tax planning considers potential tax effects while you make broader financial decisions. Coordinating timing, accounts, and anticipated changes can help you understand the tradeoffs involved.',
@@ -55,6 +61,7 @@ const serviceDetails = {
   },
   'estate-planning': {
     title: 'Estate Planning',
+    sectionHeading: 'Make room for the legacy you want to leave.',
     approachHeading: 'Your wishes, considered in the financial plan.',
     description: 'Organize estate-related financial questions and coordinate your planning with qualified legal professionals.',
     overview: 'Estate planning helps you consider how decisions about beneficiaries, assets, and future care connect to your wishes and the people important to you.',
@@ -64,6 +71,7 @@ const serviceDetails = {
   },
   'education-planning': {
     title: 'Education Planning',
+    sectionHeading: 'How education planning can fit your plan.',
     approachHeading: 'Education goals, balanced with the bigger picture.',
     description: 'Plan for education goals by considering timing, estimated costs, available resources, and other priorities.',
     overview: 'Education planning helps families think ahead about education costs and how those goals fit alongside retirement, cash flow, and other financial needs.',
@@ -73,6 +81,7 @@ const serviceDetails = {
   },
   'cash-flow-planning': {
     title: 'Cash Flow Planning',
+    sectionHeading: 'Create a cash flow that reflects what matters.',
     approachHeading: 'A day-to-day plan that fits your priorities.',
     description: 'Understand how income, spending, saving, and debt interact with your short- and long-term goals.',
     overview: 'Cash flow planning provides a clearer view of where money comes from and where it goes. That information can help you evaluate everyday choices alongside larger financial goals.',
@@ -82,6 +91,7 @@ const serviceDetails = {
   },
   'business-planning': {
     title: 'Business Planning',
+    sectionHeading: 'Bring business and personal goals together.',
     approachHeading: 'Business decisions, connected to your goals.',
     description: 'Connect business decisions with owner goals, cash flow, employee benefits, and personal financial planning.',
     overview: 'Business planning considers how business and personal finances affect one another. Owners may need to coordinate compensation, business cash flow, employee benefits, taxes, and long-term plans.',
@@ -91,6 +101,7 @@ const serviceDetails = {
   },
   'financial-literacy': {
     title: 'Financial Literacy',
+    sectionHeading: 'Understand your choices with confidence.',
     approachHeading: 'Clear explanations for more confident decisions.',
     description: 'Build practical understanding of financial topics to support informed conversations and decisions.',
     overview: 'Financial literacy is about understanding common money concepts and knowing which questions to ask. Clear information can help individuals and families participate more confidently in financial decisions.',
@@ -148,7 +159,7 @@ if (servicePage && service) {
   const container = create('div', 'container');
   const heading = create('div', 'section-heading');
   heading.append(create('p', 'eyebrow', 'A connected plan'));
-  heading.append(create('h2', '', `How ${service.title.toLowerCase()} can fit your plan.`));
+  heading.append(create('h2', '', service.sectionHeading));
   heading.append(create('p', '', service.overview));
 
   const columns = create('div', 'two-column');
