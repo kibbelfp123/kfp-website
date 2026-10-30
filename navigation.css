@@ -40,6 +40,12 @@
 .site-header .button:hover, .site-header .header-cta:hover { background: var(--gold-light); }
 .site-header .menu-toggle { display: none; min-height: 42px; padding: 0 12px; background: transparent; border: 1px solid var(--line); color: var(--ink); font: inherit; font-size: 12px; }
 
+.hero-image, .page-hero-image { transform: translate3d(0, var(--parallax-offset, 0), 0) scale(1.1); transform-origin: center; will-change: transform; }
+.person-photo { transform: translate3d(0, var(--parallax-offset, 0), 0) scale(1.04); transform-origin: center; will-change: transform; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-image, .page-hero-image, .person-photo { transform: none; will-change: auto; }
+}
+
 @media (max-width: 900px) {
   .site-header .container { width: min(var(--content), calc(100% - 44px)); }
   .site-header .header-inner { min-height: 74px; gap: 15px; }
